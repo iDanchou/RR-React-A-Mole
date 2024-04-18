@@ -1,11 +1,11 @@
-import { useEffect } from "react";
-import yesMole from "../mole.png";
+import React, { useEffect } from "react";
+import noMole from "../molehill.png";
 
-function Mole(props) {
+function EmptySlot(props) {
   useEffect(() => {
     let randSeconds = Math.ceil(Math.random() * 5000);
     let timer = setTimeout(() => {
-      props.toggle(false);
+      props.toggle(true);
     }, randSeconds);
     return () => clearTimeout(timer);
   });
@@ -14,12 +14,12 @@ function Mole(props) {
     <div>
       <img
         style={{ width: "30vw" }}
-        src={yesMole}
+        src={noMole}
         onClick={props.handleBop}
-        alt="mole"
+        alt="empty molehill"
       />
     </div>
   );
 }
 
-export default Mole;
+export default EmptySlot;
